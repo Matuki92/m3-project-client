@@ -1,0 +1,9 @@
+<div class="grid">
+  <ng-container *ngFor="let beer of beers">
+    <div class="grid-item" *ngIf="beer.active" [ngStyle]="{ 'background-color': beer.color }">
+      <a [routerLink]="['/beers', beer._id]">
+        <app-beer-card class="home-page-card" [beer]="beer"></app-beer-card>
+      </a>
+    </div>
+  </ng-container>
+</div>

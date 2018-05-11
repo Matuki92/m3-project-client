@@ -1,0 +1,15 @@
+h2 {
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+
+hr {
+  width: 80%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.comment-section {
+  height: 250px;
+  overflow: scroll;  
+}

@@ -1,0 +1,14 @@
+<div class="card" *ngIf="beer">
+  <h2 class="beer-name">{{beer.name}}</h2>
+  <div class="beer-prices">
+    <h3>Pint: €{{beer.pintPrice}}</h3>
+    <h4>1/2 Pint: €{{beer.halfPintPrice}}</h4>
+  </div>
+  <div class="beer-info">
+    <p>{{beer.type}} -</p>
+    <p>{{beer.abv}}% -</p>
+    <p>ibu: {{beer.ibu}} -</p>
+    <p>{{beer.brewery}}</p>
+    <!-- <p>{{beer.rating}}</p> -->
+  </div>
+</div>

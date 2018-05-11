@@ -1,0 +1,21 @@
+.grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+}
+.grid-item {
+  width: 600px;
+  margin: 15px;
+  border: 3px outset rgb(56, 54, 54);
+  box-shadow: 0 0 30px rgb(129, 129, 129);
+}
+.grid-item a {
+  text-decoration: none;
+  font-size: 25px;
+}
+
+@media (max-width: 600px) {
+  .home-page-card {
+    font-size: 70%;
+  }
+}

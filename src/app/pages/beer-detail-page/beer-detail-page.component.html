@@ -1,0 +1,37 @@
+<ng-container *ngIf="!beer">Loading...</ng-container>
+
+<div *ngIf="beer" [ngStyle]="{ 'background-color': beer.color }">
+  <app-beer-card [beer]="beer"></app-beer-card>
+  <hr>
+
+  <section>
+    <div>
+      <h2>Comments</h2>
+    </div>
+    <div class="comment-section">
+      <div class="comment-grid" *ngFor="let comment of comments">
+        <app-comment class="comment-grid-item" [comment]="comment"></app-comment>
+      </div>
+    </div>
+
+    <div>
+      <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+        
+        <div class="field" [ngClass]="{'has-error': feedbackEnabled && commentField.errors}">
+          <textarea rows="5" cols="45" placeholder="Add a new comment..." name="content" [(ngModel)]="newComment" #commentField="ngModel" minlength="4" [disabled]="processing"></textarea>
+            <!-- <input type="text" placeholder="Add a new comment..." name="content" [(ngModel)]="newComment.content" #commentField="ngModel" minlength="4" [disabled]="processing"/> -->
+            <div *ngIf="feedbackEnabled && commentField.errors">
+              <p *ngIf="commentField.errors.minlength" class="validation">Comment is too short!</p>
+            </div>
+          </div>
+        
+        <div class="field submit">
+            <button type="submit" [disabled]="processing">Submit</button>
+            <div *ngIf="feedbackEnabled && form.invalid">
+              <p class="validation">there are errors in the form, please review the fields</p>
+            </div>
+          </div>
+      </form>
+    </div>
+  </section>
+</div>

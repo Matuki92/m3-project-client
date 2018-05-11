@@ -1,0 +1,63 @@
+<!-- FORM -->
+<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+  <h2>Add beer</h2>
+  <!-- Beer name -->
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
+    <input type="text" placeholder="beer name" name="name" [(ngModel)]="beer.name" #nameField="ngModel" required [disabled]="processing"/>
+    <div *ngIf="feedbackEnabled && nameField.errors">
+      <p *ngIf="nameField.errors.required" class="validation">Beer name required</p>
+    </div>
+  </div>
+  <!-- Beer type -->
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && typeField.errors}">
+    <input type="text" placeholder="beer type" name="type" [(ngModel)]="beer.type" #typeField="ngModel" required [disabled]="processing"/>
+    <div *ngIf="feedbackEnabled && typeField.errors">
+      <p *ngIf="typeField.errors.required" class="validation">Beer type required</p>
+    </div>
+  </div>
+  <!-- Beer abv -->
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && abvField.errors}">
+    <input type="number" placeholder="abv" name="abv" [(ngModel)]="beer.abv" #abvField="ngModel" required [disabled]="processing"/>
+    <div *ngIf="feedbackEnabled && abvField.errors">
+      <p *ngIf="abvField.errors.required" class="validation">Beer abv required</p>
+    </div>
+  </div>
+  <!-- Beer ibu -->
+  <div class="field">
+    <input type="number" placeholder="ibu" name="ibu" [(ngModel)]="beer.ibu" [disabled]="processing"/>
+  </div>
+  <!-- Beer brewery -->
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && breweryField.errors}">
+    <input type="text" placeholder="brewery name" name="brewery" [(ngModel)]="beer.brewery" #breweryField="ngModel" required [disabled]="processing"/>
+    <div *ngIf="feedbackEnabled && breweryField.errors">
+      <p *ngIf="breweryField.errors.required" class="validation">Brewery name required</p>
+    </div>
+  </div>
+  <!-- Beer price -->
+  <div class="field">
+    <input type="number" placeholder="pint price" name="pintPrice" [(ngModel)]="beer.pintPrice" #pintPriceField="ngModel" required [disabled]="processing"/>
+  </div>
+  <!-- Beer price -->
+  <div class="field">
+    <input type="number" placeholder="half pint price" name="halfPintPrice" [(ngModel)]="beer.halfPintPrice" #halfPintPriceField="ngModel" required [disabled]="processing"/>
+  </div>
+  <!-- Beer active -->
+   <div>
+     <label>Show on screen?</label>
+     <input type="checkbox" name="active" [(ngModel)]="beer.active" [disabled]="processing"/>
+  </div>
+  <!-- Beer color -->
+  <div>
+    <label>Beer color</label>
+    <input type="color" name="color" [(ngModel)]="beer.color" required [disabled]="processing"/>
+  </div>
+  
+  <div class="field submit">
+    <button type="submit" [disabled]="processing">Submit</button>
+    <div *ngIf="feedbackEnabled && form.invalid">
+      <p class="validation">there are errors in the form, please review the fields</p>
+    </div>
+  </div>
+</form>
+
+{{beer | json}}

@@ -1,0 +1,12 @@
+.comment-box {
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  width: 400px;
+  padding: 0 15px;
+  margin: 0 auto;
+  background-color:white;
+  color: black;
+}
+
+p {
+  margin: 0;
+}

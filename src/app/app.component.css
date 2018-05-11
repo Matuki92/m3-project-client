@@ -1,0 +1,14 @@
+.nav-container, .footer-container {
+  display: inline-block;
+}
+.auth-container {
+  position:fixed;
+  transform: translateX(-80px); 
+  border: 2px solid black;
+  width: 220px;
+  background: rgb(80, 80, 80);
+  border-top:rgb(80, 80, 80);
+}
+.screen-mode, .screen-mode-back {
+  display: none;
+}

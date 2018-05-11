@@ -1,0 +1,15 @@
+.card {
+  padding: 20px;
+  text-transform: uppercase;
+  color:rgb(230, 230, 230);
+  text-shadow: 0 0 10px rgb(65, 61, 61);
+}
+.beer-prices {
+  float: right;
+  margin-bottom: 15px;
+}
+.beer-info p, .beer-name {
+  display:inline-block;
+  margin-right: 10px;
+}
+
