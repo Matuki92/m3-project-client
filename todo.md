@@ -136,10 +136,12 @@
 
 - new beer form numbers error
 - navbar login dropdown after logout
-- nav-container class name
 - user feedback (navigating to routes)
 - beer list grid max items
-- 
+- backend errors
+- backend beer get list active filter
+- admin panel beer.active status
+- "screen mode"
 
 # BACKLOG
 

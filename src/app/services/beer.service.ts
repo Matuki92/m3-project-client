@@ -28,7 +28,7 @@ export class BeerService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.baseUrl}/beers/${beer._id}`, beer, options)
+    return this.httpClient.post(`${this.baseUrl}/beers/add`, beer, options)
       .toPromise();
   }
 
@@ -37,6 +37,14 @@ export class BeerService {
       withCredentials: true
     };
     return this.httpClient.put(`${this.baseUrl}/beers/${beer._id}`, beer, options)
+      .toPromise();
+  }
+
+  delete(beer): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.delete(`${this.baseUrl}/beers/${beer._id}`, options)
       .toPromise();
   }
 }

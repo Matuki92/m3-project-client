@@ -5,4 +5,19 @@
 }
 .grid-item {
   width: 400px;
+  max-height: 500px;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 } 
+
+.item {
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  width: 400px;
+  padding: 15px;
+  margin-bottom: 5px;
+  background-color:white;
+  color: black;
+  font-size: 150%;
+}

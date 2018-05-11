@@ -3,9 +3,13 @@
 }
 .auth-container {
   position:fixed;
-  transform: translateX(-80px); 
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* transform: translateX(-80px);  */
   border: 2px solid black;
-  width: 220px;
+  width: 50%;
+  height: 50%;
   background: rgb(80, 80, 80);
   border-top:rgb(80, 80, 80);
 }

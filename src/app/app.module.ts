@@ -29,6 +29,8 @@ import { CommentService } from './services/comment.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { RequireAdminGuardService } from './guards/require-admin-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { BeerListComponent } from './components/beer-list/beer-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'beers', pathMatch: 'full' },
@@ -49,7 +51,9 @@ const routes: Routes = [
     AdminPageComponent,
     AddBeerFormComponent,
     CommentComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    UserListComponent,
+    BeerListComponent
   ],
   imports: [
     BrowserModule,

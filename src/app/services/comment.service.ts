@@ -16,7 +16,11 @@ export class CommentService {
       .toPromise();
   }
 
-  // delete(comment): Promise<any> {
-
-  // }
+  delete(comment): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.delete(`${this.baseUrl}/comments/${comment._id}`, options)
+      .toPromise();
+  }
 }

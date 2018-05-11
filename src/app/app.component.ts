@@ -38,11 +38,21 @@ export class AppComponent implements OnInit {
   }
 
   toggleLogInForm() {
-    this.logInActive = !this.logInActive;
+    if (!this.signUpActive) {
+      this.logInActive = !this.logInActive;
+    } else {
+      this.toggleSignUpForm();
+      this.toggleLogInForm();
+    }
   }
 
   toggleSignUpForm() {
-    this.signUpActive = !this.signUpActive;
+    if (!this.logInActive) {
+      this.signUpActive = !this.signUpActive;
+    } else {
+      this.toggleLogInForm();
+      this.toggleSignUpForm();
+    }
   }
 
   logout() {

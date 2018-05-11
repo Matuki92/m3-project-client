@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { BeerService } from '../../services/beer.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-add-beer-form',
@@ -13,7 +12,8 @@ export class AddBeerFormComponent implements OnInit {
   processing = false;
   beer: object;
   
-  constructor(private beerService: BeerService) {
+  @Output() submit: EventEmitter<any> = new EventEmitter();
+  constructor() {
   }
   
   ngOnInit() {
@@ -32,18 +32,8 @@ export class AddBeerFormComponent implements OnInit {
     this.feedbackEnabled = true;
     if (form.valid) {
       this.processing = true;
-      this.beerService.addBeer(this.beer)
-        .then((result) => {
-          this.processing = false;
-          this.feedbackEnabled = false;
-          this.defaultBeer();
-        })
-        .catch(err => {
-          this.error = err.error.error;
-          this.processing = false;
-          this.feedbackEnabled = false;
-        })
+      this.submit.emit(this.beer)
+      this.defaultBeer();
     }
   }
-
 }

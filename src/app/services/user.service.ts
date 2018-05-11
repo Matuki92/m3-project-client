@@ -9,7 +9,13 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // getList(): Promise<any> {}
+  getList(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/users`, options)
+      .toPromise();
+  }
 
   getOne(id): Promise<any> {
     const options = {

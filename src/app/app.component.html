@@ -12,13 +12,14 @@
         </div>
         
         <ng-container *ngIf="!loading && anon">
-          <div class="nav-container" (mouseenter)="toggleLogInForm()" (mouseleave)="toggleLogInForm()">
-            <a>Log In</a>
+          <div class="blur"></div>
+          <div class="nav-container">
+            <a (click)="toggleLogInForm()">Log In</a>
             <app-log-in class="auth-container" *ngIf="logInActive"></app-log-in>
           </div>
           
-          <div class="nav-container" (mouseenter)="toggleSignUpForm()" (mouseleave)="toggleSignUpForm()">
-            <a >Sign Up</a>
+          <div class="nav-container">
+            <a (click)="toggleSignUpForm()">Sign Up</a>
             <app-sign-up class="auth-container" *ngIf="signUpActive"></app-sign-up>
           </div>         
         </ng-container>

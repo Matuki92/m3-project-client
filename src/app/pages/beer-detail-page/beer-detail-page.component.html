@@ -10,7 +10,7 @@
     </div>
     <div class="comment-section">
       <div class="comment-grid" *ngFor="let comment of comments">
-        <app-comment class="comment-grid-item" [comment]="comment"></app-comment>
+        <app-comment class="comment-grid-item" [comment]="comment" (removed)="updatePageInfo()"></app-comment>
       </div>
     </div>
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BeerService } from '../../services/beer.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-admin-page',
@@ -7,9 +9,64 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPageComponent implements OnInit {
 
-  constructor() { }
+  feedbackEnabled = false;
+  error: string;
+  processing = false;
+
+  beers: object;
+  users: object;
+  constructor(private beerService: BeerService, private userService: UserService) { }
 
   ngOnInit() {
+    this.updatePageInfo();
+  }
+
+  updatePageInfo() {
+    this.beerService.listAll()
+    .then(beers => {
+      this.beers = beers;
+      return this.userService.getList()
+        .then(users => {
+          this.users = users;
+        })
+    })
+    .catch(err => console.log(err))
+  }
+
+  submitForm(beer) {
+    this.beerService.addBeer(beer)
+      .then((result) => {
+        // do something
+      })
+      .catch(err => {
+        this.error = err.error.error;
+        this.processing = false;
+        this.feedbackEnabled = false;
+      })
+  }
+
+  deleteBeer(beer) {
+    this.beerService.delete(beer)
+      .then(() => {
+        this.updatePageInfo();
+      })
+      .catch(err => {
+        this.error = err.error.error;
+        this.processing = false;
+        this.feedbackEnabled = false;
+      });
+  }
+
+  updateBeer(beer) {
+    this.beerService.update(beer)
+      .then(() => {
+        this.updatePageInfo();
+      })
+      .catch(err => {
+        this.error = err.error.error;
+        this.processing = false;
+        this.feedbackEnabled = false;
+      });
   }
 
 }
