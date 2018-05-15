@@ -1,19 +1,25 @@
 <ng-container *ngIf="!beer">Loading...</ng-container>
 
-<div *ngIf="beer" [ngStyle]="{ 'background-color': beer.color }">
-  <app-beer-card [beer]="beer"></app-beer-card>
-  <hr>
-
-  <section>
+<div class="container" *ngIf="beer">
+  <section class="top-section block">
     <div>
-      <h2>Comments</h2>
+      <app-beer-card [beer]="beer"></app-beer-card>
+      <button class="fav-btn" (click)="toggleFav()" [ngClass]="{'fav-btn-active': beerFav}"></button>
     </div>
-    <div class="comment-section">
-      <div class="comment-grid" *ngFor="let comment of comments">
-        <app-comment class="comment-grid-item" [comment]="comment" (removed)="updatePageInfo()"></app-comment>
+  <hr>
+    
+    <div>
+      <div class="comment-section">
+          <h2>Comments</h2>
+        <div class="comment-grid" *ngFor="let comment of comments">
+          <app-comment class="comment-grid-item" [comment]="comment" (removed)="updatePageInfo()">{{favText}}</app-comment>
+        </div>
       </div>
     </div>
+  </section>
 
+
+  <section class="bottom-section block">
     <div>
       <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
         
@@ -34,4 +40,3 @@
       </form>
     </div>
   </section>
-</div>

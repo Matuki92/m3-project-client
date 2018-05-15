@@ -19,7 +19,8 @@ body {
 
 body {
   color: rgb(255, 255, 255);
-  font-family: 'Noto Sans', sans-serif;
+  background: url('https://files.slack.com/files-pri/T02CQ4EN4-FAP8TGBEX/texture-bg_copy.png');
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 147%;
 }
@@ -36,48 +37,46 @@ h3, h4, p {
 
 /* ---- layout ---- */
 
-#site-header, #site-footer{
-  position: sticky;
-  background: rgb(80, 80, 80);
-}
-#site-header {
+#site-header{
   top: 0;
-  border-bottom: 1px solid black;
-}
-#site-footer {
-  bottom: 0;
-  border-top: 1px solid black;
-  padding: 15px;
-}
-#site-footer a {
-  text-decoration: none;
-  color: white;
+  position: sticky;
+  background: #310303;
 }
 #site-main {
-  background-color: rgb(37, 37, 37);
+  padding: 10px 0;
 }
-
 .container {
   margin: 0 20px;
 }
-
-.section {
-  margin-bottom: 20px;
-  padding-top: 20px;
-}
-
 @media (min-width: 768px) {
   .container {
     max-width: 728px;
     margin: 0 auto;
   }
 }
+/* Scrollbar */
+::-webkit-scrollbar{
+    width: 0;
+}
+
+button:focus {
+  outline:0;
+}
+
 /* Form */
 
 .field input{
+  color:white;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #FFE0E0;
   width: 90%;
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 200%;
+  margin-bottom: 40px;
+}
+
+.field input:focus {
+  background: #890000;
 }
 
 form {
@@ -92,7 +91,8 @@ form .validation {
 
 form button {
   border: 1px solid rgb(39, 38, 38);
-  padding: 5px 0;
+  background: #FFE0E0;
+  padding: 15px 0;
   font-size: 16px;
   width: 90%;
 }
@@ -103,24 +103,6 @@ form button:hover {
 
 /* ---- components ---- */
 
-/* Nav */
 
-.site-nav, #site-footer > .container {
-  display: flex;
-  justify-content: space-between;
-  max-height: 100px;
-}
-.site-nav a {
-  height: 100%;
-  line-height: 50px;
-  padding: 0 20px;
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-}
-.site-nav a:hover {
-  color:rgb(255, 196, 0);
-  cursor: move;
-}
 
 

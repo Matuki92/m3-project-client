@@ -1,3 +1,7 @@
+<ng-container *ngIf="!beer">
+    Loading...
+  </ng-container>
+
 <div *ngIf="beer">
   <a [routerLink]="['/beers', beer._id]">{{beer.name}}</a>
 </div>

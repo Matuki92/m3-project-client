@@ -1,6 +1,16 @@
 <!-- FORM -->
 <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
   <h2>Add beer</h2>
+  <!-- Beer active -->
+   <div class="form-inline-items">
+     <label>Show on screen?</label>
+     <input type="checkbox" name="active" [(ngModel)]="beer.active" [disabled]="processing"/>
+  </div>
+  <!-- Beer color -->
+  <div class="form-inline-items">
+    <label>Beer color</label>
+    <input type="color" name="color" [(ngModel)]="beer.color" required [disabled]="processing"/>
+  </div>
   <!-- Beer name -->
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
     <input type="text" placeholder="beer name" name="name" [(ngModel)]="beer.name" #nameField="ngModel" required [disabled]="processing"/>
@@ -40,16 +50,6 @@
   <!-- Beer price -->
   <div class="field">
     <input type="number" placeholder="half pint price" name="halfPintPrice" [(ngModel)]="beer.halfPintPrice" #halfPintPriceField="ngModel" required [disabled]="processing"/>
-  </div>
-  <!-- Beer active -->
-   <div>
-     <label>Show on screen?</label>
-     <input type="checkbox" name="active" [(ngModel)]="beer.active" [disabled]="processing"/>
-  </div>
-  <!-- Beer color -->
-  <div>
-    <label>Beer color</label>
-    <input type="color" name="color" [(ngModel)]="beer.color" required [disabled]="processing"/>
   </div>
   
   <div class="field submit">

@@ -11,7 +11,7 @@ export class HomePageComponent implements OnInit {
   constructor(private beerService: BeerService) { }
 
   ngOnInit() {
-    this.beerService.listAll()
+    this.beerService.listActive()
       .then(data => {
         this.beers = data;
       })

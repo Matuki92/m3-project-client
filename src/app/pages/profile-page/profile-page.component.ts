@@ -11,7 +11,9 @@ export class ProfilePageComponent implements OnInit {
 
   user: any;
 
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private userService: UserService, 
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {

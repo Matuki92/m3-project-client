@@ -1,7 +1,7 @@
 .comment-box {
   border: 1px solid rgb(0, 0, 0, 0.2);
   width: 400px;
-  padding: 0 15px;
+  padding: 10px 15px;
   margin: 0 auto;
   background-color:white;
   color: black;
@@ -9,4 +9,30 @@
 
 p {
   margin: 0;
+}
+
+.inner-box-left, .inner-box-right {
+  display: inline-block;
+}
+
+.inner-box-left {
+  width: 80%; 
+}
+
+.inner-box-right {
+  float: right;
+  padding-top: 20px;
+}
+
+button {
+  color:white;
+  box-shadow: 0 0 10px;
+  border: 1px solid rgb(0, 0, 0, 0.3);
+  background: #c90000;
+  padding: 0 10px;
+  font-size: 200%;
+}
+
+button:hover {
+  color: yellow;
 }

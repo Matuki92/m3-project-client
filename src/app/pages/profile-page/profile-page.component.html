@@ -1,3 +1,32 @@
-<p>
-  {{user | json}}
-</p>
+<ng-container *ngIf="!user">
+    Loading...
+  </ng-container>
+
+<div class="container block" *ngIf="user">
+  <div>
+    <h1>{{user.username}}</h1>
+  </div>
+
+  <hr>
+
+  <div>    
+    <h2>My favorite beers</h2>
+    <div class="card-container">
+      <div class="card-item" *ngFor="let beer of user.favorites">
+        <a [routerLink]="['/beers', beer._id]">
+          <app-beer-card [beer]="beer"></app-beer-card>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div>
+    <h2>My Comments</h2>
+    <div class="card-container" *ngFor>
+      
+    </div>
+  </div>
+
+</div>

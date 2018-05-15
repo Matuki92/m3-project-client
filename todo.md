@@ -135,13 +135,13 @@
 ## FIX
 
 - new beer form numbers error
-- navbar login dropdown after logout
+- navbar form toggles with button hover
 - user feedback (navigating to routes)
-- beer list grid max items
+- beer list grid max items (switch to grid)
 - backend errors
-- backend beer get list active filter
 - admin panel beer.active status
-- "screen mode"
+- loading in all pages
+- dropdown hide after click
 
 # BACKLOG
 

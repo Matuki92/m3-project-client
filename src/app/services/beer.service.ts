@@ -16,6 +16,14 @@ export class BeerService {
       .toPromise();
   }
 
+  listActive(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/beers/active`, options)
+      .toPromise();
+  }
+
   getOne(id: string): Promise<any> {
     const options = {
       withCredentials: true

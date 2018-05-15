@@ -1,14 +1,33 @@
+<ng-container *ngIf="!beer">
+  Loading...
+</ng-container>
+
 <div class="card" *ngIf="beer">
-  <h2 class="beer-name">{{beer.name}}</h2>
-  <div class="beer-prices">
-    <h3>Pint: €{{beer.pintPrice}}</h3>
-    <h4>1/2 Pint: €{{beer.halfPintPrice}}</h4>
+
+  <div class="beer-title box">
+      <h2>{{beer.name}}</h2>
+    <div class="beer-color" [ngStyle]="{ 'background-color': beer.color }"></div>
   </div>
-  <div class="beer-info">
-    <p>{{beer.type}} -</p>
-    <p>{{beer.abv}}% -</p>
-    <p>ibu: {{beer.ibu}} -</p>
-    <p>{{beer.brewery}}</p>
-    <!-- <p>{{beer.rating}}</p> -->
+
+  <div class="beer-info box">
+    <div class="beer-info-left">
+      <p>{{beer.type}}</p>
+      <p><strong>Alc:</strong> {{beer.abv}}%</p>
+      <p><strong>IBU:</strong> {{beer.ibu}}</p>
+    </div>
+    <div class="beer-info-right">
+      <h3> <img src="assets/data/images/pint.png" alt="pint"> €{{beer.pintPrice}}</h3>
+      <h3> <img src="assets/data/images/half_pint.png" alt="half-pint"> €{{beer.halfPintPrice}}</h3>
+    </div>
   </div>
+  
+  <div class="beer-brewery box">
+      <h3>{{beer.brewery}}</h3>
+  </div>
+
+
 </div>
+
+
+
+<!--  -->

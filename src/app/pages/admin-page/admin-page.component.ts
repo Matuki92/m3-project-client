@@ -15,6 +15,8 @@ export class AdminPageComponent implements OnInit {
 
   beers: object;
   users: object;
+
+  beer: any;
   constructor(private beerService: BeerService, private userService: UserService) { }
 
   ngOnInit() {
@@ -57,13 +59,17 @@ export class AdminPageComponent implements OnInit {
       });
   }
 
+
   updateBeer(beer) {
+    this.beer = beer;
+    this.beer.active = !this.beer.active;
+    
     this.beerService.update(beer)
-      .then(() => {
-        this.updatePageInfo();
+      .then(beer => {
+        this.beer = beer;
       })
-      .catch(err => {
-        this.error = err.error.error;
+      .catch( err => {
+        this.error = err.error.code;
         this.processing = false;
         this.feedbackEnabled = false;
       });

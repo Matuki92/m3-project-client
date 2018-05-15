@@ -1,6 +1,16 @@
+<ng-container *ngIf="!comment">
+    Loading...
+  </ng-container>
+
 <div class="comment-box" *ngIf="comment">
-  <p>{{comment.content}}</p>
-  <p>by {{comment.owner.username}}</p>
-  <p>{{comment.date}}</p>
-  <button (click)="handleRemove(comment)">-</button>
+  <div class="inner-box-left">
+    <p><strong>{{comment.content}}</strong></p>
+    <hr>
+    <p>by {{comment.owner.username}}</p>
+    <p>{{comment.date}}</p>
+  </div>
+
+  <div *ngIf="userIsOwner" class="inner-box-right">
+    <button (click)="handleRemove(comment)">X</button>
+  </div>
 </div>

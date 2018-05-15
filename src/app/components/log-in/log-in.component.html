@@ -2,14 +2,16 @@
 <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-    <input placeholder="username" type="text" name="username" [(ngModel)]="user.username" #usernameField="ngModel" required [disabled]="processing"/>
+    <label>Username</label>
+    <input type="text" name="username" [(ngModel)]="user.username" #usernameField="ngModel" required [disabled]="processing"/>
     <div *ngIf="feedbackEnabled && usernameField.errors">
       <p *ngIf="usernameField.errors.required" class="validation">username required</p>
     </div>
   </div>
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-    <input placeholder="password" type="password" name="password" [(ngModel)]="user.password" #passwordField="ngModel" required [disabled]="processing"/>
+    <label>Password</label>
+    <input type="password" name="password" [(ngModel)]="user.password" #passwordField="ngModel" required [disabled]="processing"/>
     <div *ngIf="feedbackEnabled && passwordField.errors">
       <p *ngIf="passwordField.errors.required" class="validation">password required</p>
     </div>

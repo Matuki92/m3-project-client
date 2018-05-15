@@ -1,22 +1,27 @@
 <div class="grid">
-  <div class="grid-item">
+  <div class="grid-item form">
     <app-add-beer-form (submit)="submitForm($event)"></app-add-beer-form>
   </div>
 
-  <h2>Beers list</h2>
-  <div class="grid-item">
-    <div class="item" *ngFor="let beer of beers">
-      <app-beer-list [beer]="beer"></app-beer-list>
-      <button (click)="deleteBeer(beer)">-</button>
-      <input (click)="updateBeer(beer)" type="checkbox" [ngModel]="beer.active">
+  <div>
+    <div class="grid-item">
+      <h2 class="item">Beers list</h2>
+      <div class="item" *ngFor="let beer of beers">
+        <app-beer-list [beer]="beer"></app-beer-list>
+        <button (click)="deleteBeer(beer)">-</button>
+        <input (click)="updateBeer(beer)" type="checkbox" [ngModel]="beer.active">
+      </div>
+    </div>
+    
+  
+    <div class="grid-item">
+      <h2 class="item">Users list</h2>
+      <div class="item" *ngFor="let user of users">
+        <app-user-list [user]="user"></app-user-list>
+        <a [routerLink]="['/users', user._id]"></a>
+      </div>
     </div>
   </div>
 
-  <h2>Users list</h2>
-  <div class="grid-item">
-    <div class="item" *ngFor="let user of users">
-      <app-user-list [user]="user"></app-user-list>
-      <a [routerLink]="['/users', user._id]"></a>
-    </div>
-  </div>
+
 </div>

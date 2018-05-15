@@ -2,22 +2,25 @@
 <!-- FORM -->
 <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
   <!-- Username -->
+
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-      <input placeholder="username" type="text" name="username" [(ngModel)]="user.username" #usernameField="ngModel" required [disabled]="processing"/>
+      <label>Username</label>
+      <input type="text" name="username" [(ngModel)]="user.username" #usernameField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && usernameField.errors">
         <p *ngIf="usernameField.errors.required" class="validation">username required</p>
       </div>
     </div>
   <!-- Password -->
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-      <input placeholder="password" type="password" name="password" [(ngModel)]="user.password" #passwordField="ngModel" required [disabled]="processing"/>
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="user.password" #passwordField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && passwordField.errors">
         <p *ngIf="passwordField.errors.required" class="validation">password required</p>
       </div>
     </div>
   <!-- Repeat password -->
     <!-- <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-      <input placeholder="repeat password" type="password" name="repeatPassword" [(ngModel)]="repeatPassword" #repeatPasswordField="ngModel" required [disabled]="processing"/>
+      <input type="password" name="repeatPassword" [(ngModel)]="repeatPassword" #repeatPasswordField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && repeatPasswordField.errors">
         <p *ngIf="repeatPasswordField.errors.required" class="validation">password repeat required</p>
         <p *ngIf="noMatch" clas="validation">passwords don't match</p>
@@ -26,7 +29,8 @@
 
   <!-- Email -->
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-      <input placeholder="email" type="email" name="email" [(ngModel)]="user.email" #emailField="ngModel" required [disabled]="processing"/>
+      <label>Email</label>
+      <input type="email" name="email" [(ngModel)]="user.email" #emailField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && emailField.errors">
         <p *ngIf="emailField.errors.required" class="validation">email required</p>
       </div>
