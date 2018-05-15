@@ -27,7 +27,7 @@ body {
 
 h1, h2 {
   margin: 0 0 20px 0;
-} 
+}
 
 h3, h4, p {
   margin: 0 0 10px 0;
@@ -43,7 +43,7 @@ h3, h4, p {
   background: #310303;
 }
 #site-main {
-  padding: 10px 0;
+  padding: 30px 0;
 }
 .container {
   margin: 0 20px;
@@ -59,8 +59,15 @@ h3, h4, p {
     width: 0;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
 button:focus {
-  outline:0;
+    outline: none;
+}
+
+button, a {
+  cursor: move;
 }
 
 /* Form */
@@ -76,7 +83,8 @@ button:focus {
 }
 
 .field input:focus {
-  background: #890000;
+  box-shadow:inset 0 -4px 8px -1px rgba(221, 195, 77, 0.856);
+  /* background: #890000; */
 }
 
 form {
@@ -91,7 +99,7 @@ form .validation {
 
 form button {
   border: 1px solid rgb(39, 38, 38);
-  background: #FFE0E0;
+  background: rgba(221, 195, 77, 0.856);
   padding: 15px 0;
   font-size: 16px;
   width: 90%;
@@ -102,7 +110,6 @@ form button:hover {
 }
 
 /* ---- components ---- */
-
 
 
 

@@ -8,19 +8,19 @@ export class CommentService {
 
   constructor(private httpClient: HttpClient) { }
 
-  add(comment): Promise<any> {
-    const options = {
-      withCredentials: true
-    };
-    return this.httpClient.post(`${this.baseUrl}/comments/add`, comment, options)
-      .toPromise();
-  }
-
   delete(comment): Promise<any> {
     const options = {
       withCredentials: true
     };
     return this.httpClient.delete(`${this.baseUrl}/comments/${comment._id}`, options)
+      .toPromise();
+  }
+
+  getByUser(user): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/comments/user/${user._id}`, options)
       .toPromise();
   }
 }

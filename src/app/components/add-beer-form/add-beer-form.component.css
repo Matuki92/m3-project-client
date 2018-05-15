@@ -1,3 +1,6 @@
 .form-inline-items {
   display: inline-block;
 }
+::placeholder {
+  color: rgba(221, 195, 77, 0.479);
+}

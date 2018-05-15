@@ -28,9 +28,8 @@
   text-decoration: none;
   display: block;
 }
-
 .dropdown-content a:hover {
-  text-decoration: underline;
+  text-shadow: 0 0 10px rgba(221, 195, 77, 0.856);
 }
 
 .dropdown:hover .dropdown-content {
@@ -57,7 +56,7 @@
   text-decoration: none;
 }
 .site-nav a:hover {
-  color:rgb(255, 196, 0);
+  color:rgba(221, 195, 77, 0.856);
   cursor: move;
 }
 
@@ -76,6 +75,14 @@
 }
 .screen-mode, .screen-mode-back {
   display: none;
+}
+
+.back-link {
+  padding: 0 50%;
+  width: 50px;
+  margin: 0 auto;
+  color: black;
+  text-shadow: 5px 5px 10px #490000;
 }
 
 @media (max-width: 600px) {

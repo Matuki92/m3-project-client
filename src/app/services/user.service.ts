@@ -33,5 +33,24 @@ export class UserService {
       .toPromise();
   }
 
+  addFavorite(beerId): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    const data = {
+      beer: beerId
+    };
+    return this.httpClient.post(`${this.baseUrl}/users/me/favorites`, data, options)
+      .toPromise();
+  }
+
+  removeFavorite(beerId): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.delete(`${this.baseUrl}/users/me/favorites/${beerId}`, options)
+      .toPromise();
+  }
+
   // delete(user): Promise<any> {}
 }

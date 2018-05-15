@@ -6,8 +6,8 @@
   <div class="inner-box-left">
     <p><strong>{{comment.content}}</strong></p>
     <hr>
-    <p>by {{comment.owner.username}}</p>
-    <p>{{comment.date}}</p>
+    <p>by {{comment.owner.username}} / {{comment.date}}</p>
+    <p></p>
   </div>
 
   <div *ngIf="userIsOwner" class="inner-box-right">

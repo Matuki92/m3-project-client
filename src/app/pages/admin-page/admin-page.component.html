@@ -7,9 +7,13 @@
     <div class="grid-item">
       <h2 class="item">Beers list</h2>
       <div class="item" *ngFor="let beer of beers">
-        <app-beer-list [beer]="beer"></app-beer-list>
-        <button (click)="deleteBeer(beer)">-</button>
-        <input (click)="updateBeer(beer)" type="checkbox" [ngModel]="beer.active">
+          <div class="inner-box-left item">
+            <app-beer-list [beer]="beer"></app-beer-list>
+          </div>
+          <button (click)="deleteBeer(beer)">X</button>
+          <div class="inner-box-right">
+            <input (click)="updateBeer(beer)" type="checkbox" [ngModel]="beer.active">
+          </div>
       </div>
     </div>
     
@@ -17,8 +21,12 @@
     <div class="grid-item">
       <h2 class="item">Users list</h2>
       <div class="item" *ngFor="let user of users">
-        <app-user-list [user]="user"></app-user-list>
-        <a [routerLink]="['/users', user._id]"></a>
+        <div class="inner-box-left item">
+          <app-user-list [user]="user"></app-user-list>
+        </div>
+        <div class="inner-box-right">
+            <button (click)="deleteUser(user)">X</button>
+        </div>
       </div>
     </div>
   </div>

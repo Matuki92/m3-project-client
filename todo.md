@@ -2,7 +2,7 @@
 
  - Users can sign up
  - Users can log in
- - Users can log out 
+ - Users can log out
  - Users can get a list of the actual beers in stock
  - Users can see the details of a selected beer
  - Users can add beers to favorites
@@ -68,14 +68,14 @@
   - post ":id"
   - delete ":id"
 
-##      Route           /           Page             /          Components                    /          Guard  
+##      Route           /           Page             /          Components                    /          Guard
   -    /beers                       Home                 Beer card, Log in, Sign up                  initAuthGuard
   -  /beers/:id                  Beer detail                 Beer card, Comments                     requireUserGuard
   -   /users/:id                User profile               User card, Beer list                     requireUserGuard
   -   /admin                        Admin               Add beer form*, User list*, Beer list        requireAdminGuard
 
 ## Component imports
-- Home page 
+- Home page
   - Beer service
 
 - Beer detail page
@@ -86,7 +86,7 @@
 
 - Admin page
 
-- Beer card 
+- Beer card
   - Input
   - Route
 
@@ -134,14 +134,11 @@
 --------------------------------------------------
 ## FIX
 
-- new beer form numbers error
-- navbar form toggles with button hover
 - user feedback (navigating to routes)
 - beer list grid max items (switch to grid)
 - backend errors
-- admin panel beer.active status
-- loading in all pages
-- dropdown hide after click
+- admin not delete yourself
+
 
 # BACKLOG
 

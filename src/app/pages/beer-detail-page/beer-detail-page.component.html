@@ -1,42 +1,42 @@
 <ng-container *ngIf="!beer">Loading...</ng-container>
 
+<!-- Beer card and comments -->
 <div class="container" *ngIf="beer">
   <section class="top-section block">
     <div>
       <app-beer-card [beer]="beer"></app-beer-card>
       <button class="fav-btn" (click)="toggleFav()" [ngClass]="{'fav-btn-active': beerFav}"></button>
+      {{favText}}
     </div>
   <hr>
-    
     <div>
       <div class="comment-section">
-          <h2>Comments</h2>
-        <div class="comment-grid" *ngFor="let comment of comments">
-          <app-comment class="comment-grid-item" [comment]="comment" (removed)="updatePageInfo()">{{favText}}</app-comment>
+        <h2>Comments</h2>
+        <div class="comment-grid" *ngFor="let comment of beer.comments">
+          <app-comment class="comment-grid-item" [comment]="comment" (removed)="removeComment($event)"></app-comment>
         </div>
       </div>
     </div>
   </section>
 
-
+  <!-- New comment form -->
   <section class="bottom-section block">
     <div>
       <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-        
+        <h2>Add a new comment</h2>
         <div class="field" [ngClass]="{'has-error': feedbackEnabled && commentField.errors}">
-          <textarea rows="5" cols="45" placeholder="Add a new comment..." name="content" [(ngModel)]="newComment" #commentField="ngModel" minlength="4" [disabled]="processing"></textarea>
-            <!-- <input type="text" placeholder="Add a new comment..." name="content" [(ngModel)]="newComment.content" #commentField="ngModel" minlength="4" [disabled]="processing"/> -->
-            <div *ngIf="feedbackEnabled && commentField.errors">
-              <p *ngIf="commentField.errors.minlength" class="validation">Comment is too short!</p>
-            </div>
+          <textarea rows="5" cols="45" placeholder="Type here..." name="content" [(ngModel)]="newComment" #commentField="ngModel" minlength="4" [disabled]="processing"></textarea>
+          <div *ngIf="feedbackEnabled && commentField.errors">
+            <p *ngIf="commentField.errors.minlength" class="validation">Comment is too short!</p>
           </div>
-        
+        </div>
         <div class="field submit">
-            <button type="submit" [disabled]="processing">Submit</button>
-            <div *ngIf="feedbackEnabled && form.invalid">
-              <p class="validation">there are errors in the form, please review the fields</p>
-            </div>
+          <button type="submit" [disabled]="processing">Submit</button>
+          <div *ngIf="feedbackEnabled && form.invalid">
+            <p class="validation">there are errors in the form, please review the fields</p>
           </div>
+        </div>
       </form>
     </div>
   </section>
+</div>

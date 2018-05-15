@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { CommentService } from '../../services/comment.service';
+import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -11,22 +13,36 @@ export class ProfilePageComponent implements OnInit {
 
   user: any;
 
+  comments: [{}];
+
+  beersArrowDropdown = true;
+  usersArrowDropdown = true;
+
   constructor(
-    private userService: UserService, 
+    private userService: UserService,
+    private authService: AuthService,
+    private commentService: CommentService,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-
-      this.userService.getOne(params.id)
-        .then(user => {
-          this.user = user;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-
-    })
+    const user = this.authService.getUser();
+    this.userService.getOne(user._id)
+      .then(user => {
+        this.user = user;
+        return this.commentService.getByUser(this.user)
+          .then(comments => {
+            this.comments = comments;
+          });
+      })
+    .catch(err => {
+      console.log(err);
+    });
   }
 
+  toggleBeersArrowDropdown() {
+    this.beersArrowDropdown = !this.beersArrowDropdown;
+  }
+  toggleUsersArrowDropdown() {
+    this.usersArrowDropdown = !this.usersArrowDropdown;
+  }
 }

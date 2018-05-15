@@ -9,9 +9,10 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  
+
   title = 'Matuki Beers';
   loading = true;
+  reset = true;
   anon: boolean;
   user: any;
   admin: boolean;
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit {
       this.anon = !user;
     });
   }
-  
+
   screenModeToggle() {
     this.screenMode = !this.screenMode;
   }
@@ -60,5 +61,12 @@ export class AppComponent implements OnInit {
       .then(() => {
         this.router.navigate(['/'])
       });
+  }
+
+  resetMenu() {
+    // toggles the drop dowm menu on/off in in the dom so that it resets and colappses
+    // @todo there must be a better way
+    this.reset = false;
+    setTimeout(() => (this.reset = true));
   }
 }

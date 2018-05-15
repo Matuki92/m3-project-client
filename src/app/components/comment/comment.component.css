@@ -16,7 +16,7 @@ p {
 }
 
 .inner-box-left {
-  width: 80%; 
+  width: 80%;
 }
 
 .inner-box-right {
@@ -35,4 +35,8 @@ button {
 
 button:hover {
   color: yellow;
+}
+
+strong {
+  font-size: 20px;
 }

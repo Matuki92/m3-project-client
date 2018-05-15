@@ -1,9 +1,9 @@
 <header id="site-header" [ngClass]="{'screen-mode': screenMode}">
-  
+
   <nav class="site-nav container">
     <!--  ===================================== Dropdown menu ======================================== -->
-    
-    
+
+
     <div class="nav-container">
       <a [routerLink]="['/']">Home</a>
     </div>
@@ -12,43 +12,43 @@
       <div *ngIf="loading">
         <span class="username text">loading...</span>
       </div>
-      
-      <ng-container *ngIf="!loading && anon">
+
+      <ng-container *ngIf="reset && !loading && anon">
         <div class="dropdown nav-container">
-          <a class="dropbtn">Not logged in?</a>
+          <a class="dropbtn">Not logged in? &#9660;</a>
           <div class="dropdown-content auth-container">
             <div>
               <a (click)="toggleLogInForm()">Log In</a>
               <app-log-in *ngIf="logInActive"></app-log-in>
             </div>
-            
+
             <div>
               <a (click)="toggleSignUpForm()">Sign Up</a>
               <app-sign-up *ngIf="signUpActive"></app-sign-up>
-            </div>         
+            </div>
           </div>
         </div>
       </ng-container>
-      
-      
+
+
     </div>
-    
+
     <!-- Admin -->
-    
-    <div *ngIf="!loading && !!user">
+
+    <div *ngIf="reset && !loading && !!user">
       <div class="dropdown nav-container">
-        <a class="dropbtn">{{user.username}} ></a>
+        <a class="dropbtn">{{user.username}} &#9660;</a>
         <div class="dropdown-content">
           <ng-container *ngIf="admin">
               <div>
               <a (click)="screenModeToggle()"  [ngClass]="{'screen-mode-back': screenMode}">Hide navbar</a>
             </div>
             <div>
-              <a [routerLink]="['/admin']">Control Panel</a>
+              <a (click)="resetMenu()" [routerLink]="['/admin']">Control Panel</a>
             </div>
           </ng-container>
           <div>
-            <a [routerLink]="['/users', user._id]">My profile</a>
+            <a (click)="resetMenu()" [routerLink]="['/users', user._id]">My profile</a>
           </div>
           <div>
             <a (click)="logout()">Logout</a>
@@ -56,21 +56,13 @@
         </div>
       </div>
     </div>
-    
+
     <!-- ============================================================================== -->
-    
+
   </nav>
 </header>
 
 <div id="site-main">
   <router-outlet></router-outlet>
-  <a (click)="screenModeToggle()"  [ngClass]="{'screen-mode-back': !screenMode}">Back</a>
+  <a (click)="screenModeToggle()"  [ngClass]="{'screen-mode-back': !screenMode}" class="back-link"><span>Back</span></a>
 </div>
-
-<!-- <footer id="site-footer" [ngClass]="{'screen-mode': screenMode}">
-  <div class="container">
-    <div class="footer-container">
-      &copy; Matuki 2018
-    </div>
-  </div>
-</footer> -->

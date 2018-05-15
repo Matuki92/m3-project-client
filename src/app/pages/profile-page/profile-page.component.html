@@ -4,14 +4,16 @@
 
 <div class="container block" *ngIf="user">
   <div>
+    <img clas="avatar" src="https://hittheroad.rentals/themes/htr/assets/images/default-profile-image.png" alt="profile picture">
     <h1>{{user.username}}</h1>
   </div>
 
   <hr>
 
-  <div>    
+  <div>
     <h2>My favorite beers</h2>
-    <div class="card-container">
+    <a class="arrow-button" (click)="toggleBeersArrowDropdown()" >&#9660;</a>
+    <div class="card-container" [ngClass]="{'beers-arrow-dropdown': beersArrowDropdown}">
       <div class="card-item" *ngFor="let beer of user.favorites">
         <a [routerLink]="['/beers', beer._id]">
           <app-beer-card [beer]="beer"></app-beer-card>
@@ -24,8 +26,12 @@
 
   <div>
     <h2>My Comments</h2>
-    <div class="card-container" *ngFor>
-      
+    <a class="arrow-button" (click)="toggleUsersArrowDropdown()" >&#9660;</a>
+    <div class="card-container" [ngClass]="{'users-arrow-dropdown': usersArrowDropdown}" *ngFor="let comment of comments">
+      <div class="comment-box">
+        <p> You posted this on "{{comment.beer.name}}"</p>
+        <app-comment class="comment-grid-item" [comment]="comment" (removed)="updatePageInfo()"></app-comment>
+      </div>
     </div>
   </div>
 

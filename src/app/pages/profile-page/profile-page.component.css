@@ -1,8 +1,8 @@
 .block {
   border-radius: 10px;
   padding: 20px 0;
-  background: rgba(82, 0, 0, 0.8);
-  border: 1px solid black;  
+  background: rgba(43, 3, 3, 0.7);
+  border: 1px solid black;
   width: 100%;
   margin: 0 auto;
 }
@@ -14,6 +14,39 @@
 .card-item {
   margin-bottom: 10px;
 }
+.card-item a {
+  text-decoration: none;
+}
+h1, img{
+  display: block;
+}
 h1, h2 {
+  display: inline-block;
   padding: 0 20px;
+}
+hr {
+  width: 80%;
+  clear: both;
+}
+
+.arrow-button {
+  padding: 10px 20px;
+  font-size: 30px;
+}
+.arrow-button:hover {
+  cursor: move;
+  color:rgba(221, 195, 77, 0.856);
+}
+.beers-arrow-dropdown, .users-arrow-dropdown {
+  display: none;
+}
+img {
+  padding: 0 20px;
+  width: 150px;
+}
+.comment-box {
+  margin-bottom: 20px;
+}
+.comment-box p {
+  text-align: center;
 }

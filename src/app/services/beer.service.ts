@@ -40,6 +40,18 @@ export class BeerService {
       .toPromise();
   }
 
+  addComment(beerId, text): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    const data = {
+      text,
+      beerId
+    }
+    return this.httpClient.post(`${this.baseUrl}/beers/comments/add`, data, options)
+      .toPromise();
+  }
+
   update(beer): Promise<any> {
     const options = {
       withCredentials: true
