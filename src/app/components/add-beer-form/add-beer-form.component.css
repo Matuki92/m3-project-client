@@ -1,6 +1,20 @@
-.form-inline-items {
-  display: inline-block;
-}
 ::placeholder {
   color: rgba(221, 195, 77, 0.479);
+}
+label {
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+.form-inline-items {
+  margin: 0 auto;
+  width: 80%;
+  margin-bottom: 25px;
+}
+.input-boxes {
+}
+.input-boxes input {
+  height: 50px;
+  width: 100%;
 }

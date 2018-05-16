@@ -1,0 +1,13 @@
+img {
+  padding-top: 150px;
+  display: block;
+  margin: 0 auto;
+  width: 600px;
+}
+
+@media (max-width: 600px) {
+  img {
+    width: 100%;
+  }
+}
+

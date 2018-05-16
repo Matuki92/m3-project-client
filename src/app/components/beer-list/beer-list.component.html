@@ -3,5 +3,5 @@
   </ng-container>
 
 <div *ngIf="beer">
-  <a [routerLink]="['/beers', beer._id]">{{beer.name}}</a>
+  <a (click)="emitBeer()">{{beer.name}}</a>
 </div>

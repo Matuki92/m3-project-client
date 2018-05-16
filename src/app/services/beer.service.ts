@@ -4,7 +4,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class BeerService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://tapman-matuki.herokuapp.com';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -56,7 +56,7 @@ export class BeerService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.put(`${this.baseUrl}/beers/${beer._id}`, beer, options)
+    return this.httpClient.put(`${this.baseUrl}/beers/edit`, beer, options)
       .toPromise();
   }
 

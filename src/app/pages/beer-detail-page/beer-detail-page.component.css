@@ -60,5 +60,12 @@ hr {
 }
 
 textarea {
+  font-weight: bolder;
   font-size: 20px;
+}
+
+@media (max-width: 500px) {
+  textarea {
+    font-size: 14px;
+  }
 }

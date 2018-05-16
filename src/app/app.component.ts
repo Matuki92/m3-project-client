@@ -67,6 +67,8 @@ export class AppComponent implements OnInit {
     // toggles the drop dowm menu on/off in in the dom so that it resets and colappses
     // @todo there must be a better way
     this.reset = false;
+    this.logInActive = false;
+    this.signUpActive = false;
     setTimeout(() => (this.reset = true));
   }
 }

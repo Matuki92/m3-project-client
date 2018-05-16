@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-add-beer-form',
@@ -10,30 +10,30 @@ export class AddBeerFormComponent implements OnInit {
   feedbackEnabled = false;
   error: string;
   processing = false;
-  beer: object;
-  
-  @Output() submit: EventEmitter<any> = new EventEmitter();
+
+  @Input() beerToEdit: any;
+  @Output() newBeer: EventEmitter<any> = new EventEmitter();
+  @Output() editedBeer: EventEmitter<any> = new EventEmitter();
   constructor() {
   }
-  
+
   ngOnInit() {
-    this.defaultBeer();
-  }
-  
-  defaultBeer() {
-    this.beer = {
+    this.beerToEdit = {
       active: false,
       color: "#ffd700"
     };
   }
-  
+
   submitForm(form) {
+    this.processing = true;
     this.error = '';
     this.feedbackEnabled = true;
-    if (form.valid) {
-      this.processing = true;
-      this.submit.emit(this.beer)
-      this.defaultBeer();
+    if (form.valid && !this.beerToEdit._id) {
+      this.newBeer.emit(this.beerToEdit);
+    } else if (form.valid && this.beerToEdit._id) {
+      this.editedBeer.emit(this.beerToEdit);
     }
+    this.processing = false;
+    this.feedbackEnabled = false;
   }
 }

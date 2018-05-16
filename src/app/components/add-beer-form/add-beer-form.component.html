@@ -1,57 +1,68 @@
 <!-- FORM -->
 <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
   <h2>Add beer</h2>
-  <!-- Beer active -->
-   <div class="form-inline-items">
-     <label>Show on screen?</label>
-     <input type="checkbox" name="active" [(ngModel)]="beer.active" [disabled]="processing"/>
-  </div>
-  <!-- Beer color -->
-  <div class="form-inline-items">
-    <label>Beer color</label>
-    <input type="color" name="color" [(ngModel)]="beer.color" required [disabled]="processing"/>
-  </div>
   <!-- Beer name -->
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
-    <input type="text" placeholder="beer name" name="name" [(ngModel)]="beer.name" #nameField="ngModel" required [disabled]="processing"/>
+    <label>Beer name</label>
+    <input type="text" name="name" [(ngModel)]="beerToEdit.name" #nameField="ngModel" required [disabled]="processing"/>
     <div *ngIf="feedbackEnabled && nameField.errors">
       <p *ngIf="nameField.errors.required" class="validation">Beer name required</p>
     </div>
   </div>
   <!-- Beer type -->
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && typeField.errors}">
-    <input type="text" placeholder="beer type" name="type" [(ngModel)]="beer.type" #typeField="ngModel" required [disabled]="processing"/>
+    <label>Beer type</label>
+    <input type="text" name="type" [(ngModel)]="beerToEdit.type" #typeField="ngModel" required [disabled]="processing"/>
     <div *ngIf="feedbackEnabled && typeField.errors">
       <p *ngIf="typeField.errors.required" class="validation">Beer type required</p>
     </div>
   </div>
   <!-- Beer abv -->
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && abvField.errors}">
-    <input type="number" placeholder="abv" name="abv" [(ngModel)]="beer.abv" #abvField="ngModel" required [disabled]="processing"/>
+    <label>Alc %</label>
+    <input type="number" name="abv" [(ngModel)]="beerToEdit.abv" #abvField="ngModel" required [disabled]="processing"/>
     <div *ngIf="feedbackEnabled && abvField.errors">
       <p *ngIf="abvField.errors.required" class="validation">Beer abv required</p>
     </div>
   </div>
   <!-- Beer ibu -->
   <div class="field">
-    <input type="number" placeholder="ibu" name="ibu" [(ngModel)]="beer.ibu" [disabled]="processing"/>
+    <label>Ibu</label>
+    <input type="number" name="ibu" [(ngModel)]="beerToEdit.ibu" [disabled]="processing"/>
   </div>
   <!-- Beer brewery -->
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && breweryField.errors}">
-    <input type="text" placeholder="brewery name" name="brewery" [(ngModel)]="beer.brewery" #breweryField="ngModel" required [disabled]="processing"/>
+    <label>Brewery</label>
+    <input type="text" name="brewery" [(ngModel)]="beerToEdit.brewery" #breweryField="ngModel" required [disabled]="processing"/>
     <div *ngIf="feedbackEnabled && breweryField.errors">
       <p *ngIf="breweryField.errors.required" class="validation">Brewery name required</p>
     </div>
   </div>
   <!-- Beer price -->
   <div class="field">
-    <input type="number" placeholder="pint price" name="pintPrice" [(ngModel)]="beer.pintPrice" #pintPriceField="ngModel" required [disabled]="processing"/>
+    <label>Pint price</label>
+    <input type="number" name="pintPrice" [(ngModel)]="beerToEdit.pintPrice" #pintPriceField="ngModel" required [disabled]="processing"/>
   </div>
   <!-- Beer price -->
   <div class="field">
-    <input type="number" placeholder="half pint price" name="halfPintPrice" [(ngModel)]="beer.halfPintPrice" #halfPintPriceField="ngModel" required [disabled]="processing"/>
+    <label>Half pint price</label>
+    <input type="number" name="halfPintPrice" [(ngModel)]="beerToEdit.halfPintPrice" #halfPintPriceField="ngModel" required [disabled]="processing"/>
   </div>
-  
+  <div class="input-boxes">
+    <!-- Beer color -->
+    <div class="form-inline-items">
+      <label>Beer color</label>
+      <input type="color" name="color" [(ngModel)]="beerToEdit.color" required [disabled]="processing"/>
+    </div>
+  </div>
+    <!-- Beer active -->
+     <div class="form-inline-items">
+       <label class="checkbox-container">Show on screen?
+       <input type="checkbox" name="active" [(ngModel)]="beerToEdit.active" [disabled]="processing"/>
+       <span class="checkmark"></span>
+      </label>
+    </div>
+
   <div class="field submit">
     <button type="submit" [disabled]="processing">Submit</button>
     <div *ngIf="feedbackEnabled && form.invalid">

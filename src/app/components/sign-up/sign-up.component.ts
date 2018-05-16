@@ -31,7 +31,7 @@ export class SignUpComponent implements OnInit {
       this.processing = true;
       this.authService.signup(this.user)
         .then((result) => {
-         this.router.navigate(['/']);
+         this.router.navigate(['/beers']);
         })
         .catch((err) => {
           this.error = err.error.code; // :-)

@@ -1,6 +1,6 @@
 <div class="grid">
-  <div class="grid-item form">
-    <app-add-beer-form (submit)="submitForm($event)"></app-add-beer-form>
+  <div class="grid-item form" *ngIf="beerToEdit">
+    <app-add-beer-form [beerToEdit]="beerToEdit" (editedBeer)="updateBeer($event)" (newBeer)="submitForm($event)"></app-add-beer-form>
   </div>
 
   <div>
@@ -8,24 +8,27 @@
       <h2 class="item">Beers list</h2>
       <div class="item" *ngFor="let beer of beers">
           <div class="inner-box-left item">
-            <app-beer-list [beer]="beer"></app-beer-list>
+            <app-beer-list [beer]="beer" (outputBeer)="editBeer($event)"></app-beer-list>
           </div>
-          <button (click)="deleteBeer(beer)">X</button>
           <div class="inner-box-right">
-            <input (click)="updateBeer(beer)" type="checkbox" [ngModel]="beer.active">
+              <button (click)="deleteBeer(beer)">Remove</button>
+            <label class="checkbox-container">Active ?
+              <input (click)="updateBeer(beer, 'toggle')" type="checkbox" [ngModel]="beer.active">
+              <span class="checkmark"></span>
+            </label>
           </div>
       </div>
     </div>
-    
-  
+
+
     <div class="grid-item">
       <h2 class="item">Users list</h2>
       <div class="item" *ngFor="let user of users">
         <div class="inner-box-left item">
           <app-user-list [user]="user"></app-user-list>
         </div>
-        <div class="inner-box-right">
-            <button (click)="deleteUser(user)">X</button>
+        <div class="inner-box-right" *ngIf="user.role !== 'admin'">
+            <button (click)="deleteUser(user)">Remove</button>
         </div>
       </div>
     </div>
@@ -33,3 +36,4 @@
 
 
 </div>
+this.processing = true;

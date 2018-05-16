@@ -4,7 +4,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class CommentService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://tapman-matuki.herokuapp.com';
 
   constructor(private httpClient: HttpClient) { }
 

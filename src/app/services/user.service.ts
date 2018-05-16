@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class UserService {
 
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://tapman-matuki.herokuapp.com';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -52,5 +52,12 @@ export class UserService {
       .toPromise();
   }
 
+  delete(userId): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.delete(`${this.baseUrl}/users/${userId}`, options)
+      .toPromise();
+  }
   // delete(user): Promise<any> {}
 }

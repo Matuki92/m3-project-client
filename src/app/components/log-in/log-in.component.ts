@@ -26,7 +26,11 @@ export class LogInComponent implements OnInit {
       this.processing = true;
       this.authService.login(this.user)
         .then((result) => {
-         this.router.navigate(['/']);
+          if(result.role === 'admin') {
+            this.router.navigate(['/admin']);
+          } else {
+            this.router.navigate(['/beers']);
+          }
         })
         .catch((err) => {
           this.error = err.error.code; // :-)

@@ -137,7 +137,6 @@
 - user feedback (navigating to routes)
 - beer list grid max items (switch to grid)
 - backend errors
-- admin not delete yourself
 
 
 # BACKLOG
