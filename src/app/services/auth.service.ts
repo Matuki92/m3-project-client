@@ -4,14 +4,15 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/toPromise';
 
-// import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class AuthService {
 
   private user: any;
   private userChange: Subject<any> = new Subject();
 
-  private API_URL = 'https://tapman-matuki.herokuapp.com';
+  private baseUrl = `${environment.API_URL}`;
 
   userChange$: Observable<any> = this.userChange.asObservable();
 
@@ -27,7 +28,7 @@ export class AuthService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.API_URL}/auth/me`, options)
+    return this.httpClient.get(`${this.baseUrl}/auth/me`, options)
       .toPromise()
       .then((user) => this.setUser(user))
       .catch((err) => {
@@ -41,7 +42,7 @@ export class AuthService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.API_URL}/auth/login`, user, options)
+    return this.httpClient.post(`${this.baseUrl}/auth/login`, user, options)
       .toPromise()
       .then((data) => this.setUser(data));
   }
@@ -50,7 +51,7 @@ export class AuthService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.API_URL}/auth/signup`, user, options)
+    return this.httpClient.post(`${this.baseUrl}/auth/signup`, user, options)
       .toPromise()
       .then((data) => this.setUser(data));
   }
@@ -59,7 +60,7 @@ export class AuthService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.API_URL}/auth/logout`, {}, options)
+    return this.httpClient.post(`${this.baseUrl}/auth/logout`, {}, options)
       .toPromise()
       .then(() => this.setUser());
   }

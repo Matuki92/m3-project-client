@@ -12,11 +12,12 @@ export class LogInComponent implements OnInit {
   feedbackEnabled = false;
   error: string;
   processing = false;
-  user: object = {};
+  user: any;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.user = {};
   }
 
   submitForm(form) {
