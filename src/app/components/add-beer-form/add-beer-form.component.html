@@ -52,7 +52,7 @@
     <!-- Beer color -->
     <div class="form-inline-items">
       <label>Beer color</label>
-      <input type="color" name="color" [(ngModel)]="beerToEdit.color" required [disabled]="processing"/>
+      <input type="color" name="color" [(ngModel)]="beerToEdit.color" [disabled]="processing"/>
     </div>
   </div>
     <!-- Beer active -->
@@ -65,8 +65,13 @@
 
   <div class="field submit">
     <button type="submit" [disabled]="processing">Submit</button>
+    <div *ngIf="message">
+      <p class="validation-success">{{message}}</p>
+    </div>
     <div *ngIf="feedbackEnabled && form.invalid">
       <p class="validation">there are errors in the form, please review the fields</p>
     </div>
   </div>
 </form>
+
+<!-- {{form.invalid}} -->

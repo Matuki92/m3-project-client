@@ -15,7 +15,7 @@
 
       <ng-container *ngIf="reset && !loading && anon">
         <div class="dropdown nav-container">
-          <a class="dropbtn glow">Not logged in? &#9660;</a>
+          <a id="not-logged" class="dropbtn glow">Not logged in? &#9660;</a>
           <div class="dropdown-content auth-container">
             <div>
               <a (click)="toggleLogInForm()">Log In</a>

@@ -9,6 +9,7 @@ export class AddBeerFormComponent implements OnInit {
 
   feedbackEnabled = false;
   error: string;
+  message = '';
   processing = false;
 
   @Input() beerToEdit: any;
@@ -18,22 +19,25 @@ export class AddBeerFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.beerToEdit = {
-      active: false,
-      color: "#ffd700"
-    };
+    // this.beerToEdit = {
+    //   active: false,
+    //   color: "#ffd700"
+    // };
   }
 
   submitForm(form) {
+    console.log(form);
     this.processing = true;
     this.error = '';
     this.feedbackEnabled = true;
     if (form.valid && !this.beerToEdit._id) {
       this.newBeer.emit(this.beerToEdit);
+
     } else if (form.valid && this.beerToEdit._id) {
       this.editedBeer.emit(this.beerToEdit);
+
     }
-    this.processing = false;
     this.feedbackEnabled = false;
+    this.processing = false;
   }
 }

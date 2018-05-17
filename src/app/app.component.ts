@@ -10,7 +10,6 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit {
 
-  title = 'Matuki Beers';
   loading = true;
   reset = true;
   anon: boolean;

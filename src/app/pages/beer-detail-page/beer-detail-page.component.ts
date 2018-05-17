@@ -23,6 +23,9 @@ export class BeerDetailPageComponent implements OnInit {
   favText: string;
 
   //Comments
+  commentForm = false;
+  commentBtnText = 'Add a new comment';
+
   comments: [object];
   newComment: string = '';
 
@@ -113,9 +116,14 @@ export class BeerDetailPageComponent implements OnInit {
         });
     }
   }
-
+  // Removes comment
   removeComment(comment) {
     this.comments.splice(this.comments.indexOf(comment._id));
     this.updatePageInfo();
+  }
+
+  toggleCommentForm() {
+    this.commentForm = !this.commentForm;
+    this.commentBtnText = !this.commentForm ? 'Add a new comment' : 'Close';
   }
 }
