@@ -26,7 +26,6 @@ export class AddBeerFormComponent implements OnInit {
   }
 
   submitForm(form) {
-    console.log(form);
     this.processing = true;
     this.error = '';
     this.feedbackEnabled = true;
